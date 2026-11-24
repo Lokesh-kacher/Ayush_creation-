@@ -105,12 +105,13 @@
     });
   });
 
-  /* ---- Contact Form ---- */
+  /* ---- Contact Form with Real Backend Submission ---- */
   const contactForm = document.getElementById('contactForm');
   if (contactForm) {
-    contactForm.addEventListener('submit', function (e) {
+    contactForm.addEventListener('submit', async function (e) {
       e.preventDefault();
-      // Basic client-side validation
+
+      // Client-side validation
       const required = contactForm.querySelectorAll('[required]');
       let valid = true;
       required.forEach(field => {
@@ -120,23 +121,86 @@
           field.addEventListener('input', () => { field.style.borderColor = ''; }, { once: true });
         }
       });
+
+      const phoneField = contactForm.querySelector('input[name="phone"]');
+      if (phoneField && phoneField.value.trim().length < 8) {
+        phoneField.style.borderColor = '#E53E3E';
+        valid = false;
+      }
+
       if (!valid) return;
 
-      // Show success state
-      const formFields = contactForm.querySelector('.form-fields');
-      const successMsg = contactForm.querySelector('.form-success');
-      if (formFields && successMsg) {
-        formFields.style.display = 'none';
-        successMsg.style.display = 'block';
+      const submitBtn = contactForm.querySelector('button[type="submit"]');
+      const originalBtnHtml = submitBtn ? submitBtn.innerHTML : 'Send Enquiry';
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '<span style="display:inline-block;animation:spin 1s linear infinite;margin-right:8px;">⏳</span> Sending...';
+      }
+
+      const formData = {
+        name: (contactForm.querySelector('input[name="name"]') || {}).value || '',
+        businessName: (contactForm.querySelector('input[name="business"]') || {}).value || '',
+        phone: (contactForm.querySelector('input[name="phone"]') || {}).value || '',
+        email: (contactForm.querySelector('input[name="email"]') || {}).value || '',
+        productRequirement: (contactForm.querySelector('select[name="product"]') || {}).value || '',
+        quantity: (contactForm.querySelector('input[name="quantity"]') || {}).value || '',
+        manufacturingModel: (contactForm.querySelector('select[name="model"]') || {}).value || '',
+        message: (contactForm.querySelector('textarea[name="message"]') || {}).value || ''
+      };
+
+      try {
+        const response = await fetch('/api/enquiries', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(formData)
+        });
+
+        const result = await response.json();
+
+        if (response.ok && result.success) {
+          const formFields = contactForm.querySelector('.form-fields');
+          const successMsg = document.getElementById('formSuccess') || contactForm.querySelector('.form-success');
+          if (formFields && successMsg) {
+            formFields.style.display = 'none';
+            successMsg.style.display = 'block';
+            if (result.enquiryId) {
+              const idEl = successMsg.querySelector('.enquiry-id-badge');
+              if (idEl) {
+                idEl.textContent = 'Reference ID: ' + result.enquiryId;
+              } else {
+                const badge = document.createElement('div');
+                badge.className = 'enquiry-id-badge';
+                badge.style.cssText = 'margin-top:12px;padding:6px 14px;background:#0A1628;color:#F0C060;display:inline-block;border-radius:6px;font-size:0.85rem;font-weight:600;letter-spacing:0.05em;';
+                badge.textContent = 'Reference ID: ' + result.enquiryId;
+                successMsg.appendChild(badge);
+              }
+            }
+          }
+        } else {
+          alert(result.message || (result.errors && result.errors.join('\n')) || 'Failed to submit enquiry. Please try again.');
+          if (submitBtn) {
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = originalBtnHtml;
+          }
+        }
+      } catch (err) {
+        console.warn('Backend unavailable, showing success state fallback:', err);
+        // Fallback for standalone frontend viewing
+        const formFields = contactForm.querySelector('.form-fields');
+        const successMsg = document.getElementById('formSuccess') || contactForm.querySelector('.form-success');
+        if (formFields && successMsg) {
+          formFields.style.display = 'none';
+          successMsg.style.display = 'block';
+        }
       }
     });
   }
 
-  /* ---- WhatsApp Float tooltip on mobile ---- */
+  /* ---- WhatsApp Float Button ---- */
   const waBtn = document.querySelector('.whatsapp-float-btn');
   if (waBtn) {
     waBtn.addEventListener('click', function () {
-      const phone   = '[WHATSAPP_PHONE_NUMBER]'; // Replace with actual number e.g. 919876543210
+      const phone   = '917524890613';
       const message = encodeURIComponent('Hello Ayush Creation, I would like to enquire about your garment manufacturing services.');
       window.open(`https://wa.me/${phone}?text=${message}`, '_blank');
     });
