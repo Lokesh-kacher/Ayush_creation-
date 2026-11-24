@@ -1,0 +1,24 @@
+{
+  "name": "ayush-creation-backend",
+  "version": "1.0.0",
+  "description": "Backend API and static server for Ayush Creation B2B Garment Manufacturing",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "keywords": [
+    "garment",
+    "manufacturing",
+    "b2b",
+    "uniforms",
+    "ayush-creation"
+  ],
+  "author": "Ayush Creation",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2"
+  }
+}

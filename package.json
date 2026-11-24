@@ -1,0 +1,21 @@
+{
+  "name": "ayush-creation",
+  "version": "1.0.0",
+  "description": "Ayush Creation — Premium B2B Garment Manufacturing & Uniforms Website (Full Stack)",
+  "scripts": {
+    "start": "node backend/server.js",
+    "dev": "node --watch backend/server.js",
+    "server": "node backend/server.js",
+    "install:backend": "cd backend && npm install"
+  },
+  "keywords": [
+    "garment-manufacturing",
+    "school-uniforms",
+    "b2b",
+    "ayush-creation",
+    "mumbai",
+    "navi-mumbai"
+  ],
+  "author": "Ayush Creation",
+  "license": "ISC"
+}

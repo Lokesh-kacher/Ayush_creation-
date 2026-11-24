@@ -1,0 +1,684 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Us | Ayush Creation — Garment Manufacturer Mumbai</title>
+  <meta name="description" content="Learn about Ayush Creation, a B2B garment manufacturer based in Mumbai / Navi Mumbai, Maharashtra. We serve schools, retailers and institutions with school uniforms and institutional garments." />
+  <meta name="keywords" content="about ayush creation, garment manufacturer Mumbai, school uniform manufacturer, institutional uniform, B2B garment, Navi Mumbai" />
+  <meta property="og:title" content="About Us | Ayush Creation — Garment Manufacturer Mumbai" />
+  <meta property="og:description" content="Learn about Ayush Creation, a B2B garment manufacturer based in Mumbai / Navi Mumbai, Maharashtra." />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600;1,700&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="premium-enhancements.css" />
+  <!-- Favicon placeholder -->
+  <link rel="icon" href="images/favicon.png" type="image/png" />
+  <style>
+    /* ===== Page Banner ===== */
+    .page-banner {
+      background: linear-gradient(135deg, var(--navy, #0d2240) 0%, var(--navy-light, #1a3a5c) 100%);
+      padding: 72px 0 56px;
+      position: relative;
+      overflow: hidden;
+    }
+    .page-banner::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+    .page-banner-inner {
+      position: relative;
+      z-index: 1;
+    }
+    .page-banner h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 4vw, 2.75rem);
+      color: #fff;
+      margin: 0 0 16px;
+      font-weight: 700;
+    }
+    .breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.875rem;
+      color: rgba(255,255,255,0.65);
+    }
+    .breadcrumb a { color: rgba(255,255,255,0.75); text-decoration: none; }
+    .breadcrumb a:hover { color: #fff; }
+    .breadcrumb-sep { font-size: 0.75rem; }
+    .breadcrumb span { color: rgba(255,255,255,0.9); }
+
+    /* ===== About Intro ===== */
+    .about-intro {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+    @media (max-width: 768px) {
+      .about-intro { grid-template-columns: 1fr; gap: 36px; }
+    }
+    .about-image-wrap {
+      position: relative;
+    }
+    .about-image-placeholder {
+      width: 100%;
+      aspect-ratio: 4/3;
+      background: linear-gradient(135deg, #e8edf4 0%, #d0dae8 100%);
+      border-radius: 16px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      color: #7a92b0;
+      font-size: 0.875rem;
+      font-weight: 500;
+      border: 2px dashed #b8c8dc;
+    }
+    .about-image-placeholder svg {
+      opacity: 0.5;
+      width: 64px;
+      height: 64px;
+    }
+    .about-lead {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #0d2240;
+      line-height: 1.5;
+      margin-bottom: 20px;
+    }
+    .about-text p {
+      color: #4a5568;
+      line-height: 1.8;
+      margin-bottom: 16px;
+    }
+    .about-text p:last-child { margin-bottom: 0; }
+    .about-model-tags {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 24px;
+    }
+    .about-model-tag {
+      background: #e8edf8;
+      color: #0d2240;
+      border-radius: 24px;
+      padding: 6px 18px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      border: 1.5px solid #c4d0e6;
+    }
+
+    /* ===== Values Grid ===== */
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+    @media (max-width: 1024px) { .values-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 540px) { .values-grid { grid-template-columns: 1fr; } }
+    .value-card {
+      background: #fff;
+      border-radius: 14px;
+      padding: 32px 24px;
+      box-shadow: 0 2px 16px rgba(13,34,64,0.07);
+      border: 1px solid #e8edf4;
+      text-align: center;
+      transition: transform 0.25s, box-shadow 0.25s;
+    }
+    .value-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 32px rgba(13,34,64,0.12);
+    }
+    .value-icon {
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, #0d2240 0%, #1a3a5c 100%);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+    }
+    .value-icon svg { width: 28px; height: 28px; color: #fff; }
+    .value-card h3 { font-size: 1.05rem; color: #0d2240; margin-bottom: 10px; font-weight: 700; }
+    .value-card p { font-size: 0.875rem; color: #4a5568; line-height: 1.65; margin: 0; }
+
+    /* ===== Our Story ===== */
+    .story-section {
+      max-width: 760px;
+      margin: 0 auto;
+    }
+    .story-section p {
+      color: #4a5568;
+      line-height: 1.85;
+      margin-bottom: 20px;
+      font-size: 1.0rem;
+    }
+    .story-section p:last-child { margin-bottom: 0; }
+
+    /* ===== FAQ Accordion ===== */
+    .accordion {
+      max-width: 760px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .accordion-item {
+      background: #fff;
+      border-radius: 12px;
+      border: 1.5px solid #e0e8f0;
+      overflow: hidden;
+      box-shadow: 0 1px 6px rgba(13,34,64,0.05);
+    }
+    .accordion-btn {
+      width: 100%;
+      background: none;
+      border: none;
+      padding: 20px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      cursor: pointer;
+      text-align: left;
+      font-family: 'Inter', sans-serif;
+      font-size: 1rem;
+      font-weight: 600;
+      color: #0d2240;
+      transition: background 0.2s;
+    }
+    .accordion-btn:hover { background: #f4f7fb; }
+    .accordion-btn[aria-expanded="true"] { background: #f0f4fa; }
+    .accordion-icon {
+      flex-shrink: 0;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: #e0e8f0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.3s, background 0.2s;
+    }
+    .accordion-icon svg { width: 14px; height: 14px; color: #0d2240; transition: transform 0.3s; }
+    .accordion-btn[aria-expanded="true"] .accordion-icon {
+      background: #0d2240;
+      transform: rotate(180deg);
+    }
+    .accordion-btn[aria-expanded="true"] .accordion-icon svg { color: #fff; }
+    .accordion-body {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s ease;
+    }
+    .accordion-body.open { max-height: 300px; }
+    .accordion-body-inner {
+      padding: 0 24px 20px;
+      font-size: 0.925rem;
+      color: #4a5568;
+      line-height: 1.75;
+    }
+
+    /* ===== CTA Banner ===== */
+    .cta-banner {
+      background: linear-gradient(135deg, #0d2240 0%, #1a3a5c 100%);
+    }
+    .cta-banner-text h2 { color: #fff; margin-bottom: 10px; }
+    .cta-banner-text p { color: rgba(255,255,255,0.78); }
+    .cta-banner-actions { display: flex; gap: 16px; flex-wrap: wrap; align-items: center; margin-top: 32px; }
+  </style>
+</head>
+<body>
+
+  <!-- ===== Topbar ===== -->
+  <div class="topbar">
+    <div class="container">
+      <div class="topbar-left">
+        <span class="topbar-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><circle cx="12" cy="11" r="3"/></svg>
+          Mumbai / Navi Mumbai, Maharashtra, India
+        </span>
+        <span class="topbar-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          Mon–Sat: 9:00 AM – 6:00 PM
+        </span>
+      </div>
+      <div class="topbar-right">
+        <a class="topbar-item" href="tel:7524890613">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.63A2 2 0 012 .18h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          7524890613
+        </a>
+        <a class="topbar-item" href="mailto:ayushcreation01@gmail.com">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,12 2,6"/></svg>
+          ayushcreation01@gmail.com
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== Header ===== -->
+  <header class="site-header" role="banner">
+    <div class="container">
+      <div class="header-inner">
+        <a href="index.html" class="logo" aria-label="Ayush Creation — Home">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52" width="52" height="52" aria-hidden="true"><defs><linearGradient id="navyGrad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#0A1628"/><stop offset="100%" stop-color="#1A3060"/></linearGradient><linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#E8AD3A"/><stop offset="100%" stop-color="#C9942A"/></linearGradient></defs><!-- Background --><rect width="52" height="52" rx="10" fill="url(#navyGrad)"/><!-- Gold border ring --><rect x="2.5" y="2.5" width="47" height="47" rx="8.5" fill="none" stroke="url(#goldGrad)" stroke-width=".8" opacity=".5"/><!-- Stylized A shape --><path d="M11 37 L20 15 L26 28 M18.5 29 L23.5 29" fill="none" stroke="url(#goldGrad)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><!-- Stylized C shape --><path d="M38.5 20 Q28 17 28 26 Q28 35 38.5 32" fill="none" stroke="url(#goldGrad)" stroke-width="2.4" stroke-linecap="round"/><!-- Needle accent top-right --><line x1="40" y1="8" x2="45" y2="13" stroke="url(#goldGrad)" stroke-width="1.5" stroke-linecap="round"/><!-- Needle eye --><ellipse cx="39.5" cy="8.5" rx="1.2" ry=".8" transform="rotate(45 39.5 8.5)" fill="none" stroke="url(#goldGrad)" stroke-width="1.1"/><!-- Thread curve from needle --><path d="M44 12 Q46 20 42 26" fill="none" stroke="url(#goldGrad)" stroke-width="1" stroke-dasharray="2,2" opacity=".7" stroke-linecap="round"/><!-- Bottom text: AC --><text x="26" y="45.5" font-family="Georgia,serif" font-size="7" font-weight="700" fill="#C9942A" text-anchor="middle" letter-spacing="2" opacity=".85">AC</text></svg>
+          <div class="logo-text">
+            <div class="logo-name">Ayush Creation</div>
+            <div class="logo-tagline">Garment Manufacturers</div>
+          </div>
+        </a>
+
+        <nav class="main-nav" role="navigation" aria-label="Main navigation">
+          <a href="index.html"        class="nav-link">Home</a>
+          <a href="about.html"        class="nav-link active">About Us</a>
+          <a href="products.html"     class="nav-link">Products</a>
+          <a href="services.html"     class="nav-link">Manufacturing</a>
+          <a href="gallery.html"      class="nav-link">Gallery</a>
+          <a href="contact.html"      class="nav-link">Contact</a>
+        </nav>
+
+        <a href="contact.html" class="btn btn-primary header-cta">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+          Request a Quote
+        </a>
+
+        <button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Nav -->
+    <nav class="mobile-nav" aria-label="Mobile navigation">
+      <a href="index.html"        class="nav-link">Home</a>
+      <a href="about.html"        class="nav-link active">About Us</a>
+      <a href="products.html"     class="nav-link">Products</a>
+      <a href="services.html"     class="nav-link">Manufacturing</a>
+      <a href="gallery.html"      class="nav-link">Gallery</a>
+      <a href="contact.html"      class="nav-link">Contact</a>
+      <div class="mobile-nav-cta">
+        <a href="contact.html" class="btn btn-primary">Request a Quote</a>
+        <a href="https://wa.me/917524890613?text=Hello%20Ayush%20Creation%2C%20I%20would%20like%20to%20enquire%20about%20your%20services." class="btn btn-whatsapp" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Chat on WhatsApp
+        </a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ===== Page Banner ===== -->
+  <section class="page-banner">
+    <div class="container">
+      <div class="page-banner-inner">
+        <h1>About Ayush Creation</h1>
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <a href="index.html">Home</a>
+          <span class="breadcrumb-sep" aria-hidden="true">›</span>
+          <span>About Us</span>
+        </nav>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Section 1: Company Introduction ===== -->
+  <section class="section-pad" aria-labelledby="about-intro-title">
+    <div class="container">
+      <div class="about-intro">
+
+        <!-- Image Left -->
+        <div class="about-image-wrap" aria-hidden="true">
+          <img src="images/about-factory.jpg" alt="Ayush Creation garment manufacturing facility" loading="lazy" style="width:100%;height:100%;object-fit:cover">
+        </div>
+
+        <!-- Text Right -->
+        <div>
+          <div class="section-header" data-reveal>
+            <span class="eyebrow">Who We Are</span>
+            <span class="divider"></span>
+            <h2 id="about-intro-title">Who We Are</h2>
+          </div>
+          <p class="about-lead">
+            A dedicated garment manufacturing company based in Mumbai / Navi Mumbai, Maharashtra — built exclusively for B2B buyers.
+          </p>
+          <div class="about-text">
+            <p>
+              Ayush Creation is a garment manufacturing company based in Mumbai / Navi Mumbai, Maharashtra. We specialise in manufacturing school uniforms and institutional garments for schools, uniform retailers, wholesalers and institutional buyers across the region and beyond.
+            </p>
+            <p>
+              We operate with two clearly defined manufacturing models. Under our <strong>Job-Work model</strong>, the customer supplies the fabric and agreed materials while we provide the manufacturing expertise, infrastructure and skilled workforce to convert them into finished garments. Under our <strong>Complete Manufacturing model</strong>, we manage the entire process end-to-end — from sourcing fabric to delivering finished, packaged garments — giving our clients a single-vendor, fully managed solution.
+            </p>
+            <p>
+              Ayush Creation is a strictly B2B operation. We work exclusively with institutional and trade buyers — including schools, uniform retailers, wholesalers and procurement teams. We do not sell direct to individual consumers.
+            </p>
+          </div>
+          <div class="about-model-tags">
+            <span class="about-model-tag">Job-Work Manufacturing</span>
+            <span class="about-model-tag">Complete Manufacturing</span>
+            <span class="about-model-tag">B2B Only</span>
+            <span class="about-model-tag">Mumbai / Navi Mumbai</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Section 2: Our Values ===== -->
+  <section class="section-pad bg-off-white" aria-labelledby="values-title">
+    <div class="container">
+      <div class="section-header text-center" data-reveal>
+        <span class="eyebrow">What We Stand For</span>
+        <span class="divider center"></span>
+        <h2 id="values-title">Our Values</h2>
+        <p>The principles that guide every order, every stitch and every delivery we make.</p>
+      </div>
+      <div class="values-grid">
+
+        <div class="value-card" data-reveal>
+          <div class="value-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            </svg>
+          </div>
+          <h3>Quality Craftsmanship</h3>
+          <p>We apply rigorous quality checks at every stage of production to ensure each garment meets consistent standards of finish, sizing and durability.</p>
+        </div>
+
+        <div class="value-card" data-reveal data-reveal-delay="80">
+          <div class="value-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"/>
+              <polyline points="12 6 12 12 16 14"/>
+            </svg>
+          </div>
+          <h3>Reliability &amp; Timeliness</h3>
+          <p>We understand the importance of delivery timelines for schools and institutions, and we plan production meticulously to honour every committed schedule.</p>
+        </div>
+
+        <div class="value-card" data-reveal data-reveal-delay="160">
+          <div class="value-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/>
+              <circle cx="9" cy="7" r="4"/>
+              <path d="M23 21v-2a4 4 0 00-3-3.87"/>
+              <path d="M16 3.13a4 4 0 010 7.75"/>
+            </svg>
+          </div>
+          <h3>Customer-Centric Approach</h3>
+          <p>Every engagement begins with understanding the buyer's specific requirement — we tailor our processes and communication to suit each client's operational needs.</p>
+        </div>
+
+        <div class="value-card" data-reveal data-reveal-delay="240">
+          <div class="value-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M9 12l2 2 4-4"/>
+              <path d="M3 3h7l1 2h7a2 2 0 012 2v11a2 2 0 01-2 2H3a2 2 0 01-2-2V5a2 2 0 012-2z"/>
+            </svg>
+          </div>
+          <h3>Transparent Partnership</h3>
+          <p>We provide clear, detailed quotations and maintain open communication throughout the production process so our clients are always informed and in control.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Section 3: Our Story ===== -->
+  <section class="section-pad" aria-labelledby="story-title">
+    <div class="container">
+      <div class="section-header text-center" data-reveal>
+        <span class="eyebrow">Our Background</span>
+        <span class="divider center"></span>
+        <h2 id="story-title">Our Story</h2>
+      </div>
+      <div class="story-section" data-reveal>
+        <p>
+          Ayush Creation was founded in [FOUNDING_YEAR] by [FOUNDER_NAME] with a clear vision: to bring reliable, quality-focused garment manufacturing to institutional buyers in Mumbai. Recognising the need for a dedicated manufacturing partner who truly understood the requirements of schools, uniform retailers and institutional procurement — rather than a generalist factory juggling a wide range of clients — Ayush Creation was established with an exclusive focus on institutional and school garments.
+        </p>
+        <p>
+          From its early days, the company built its reputation on two fundamentals: consistent quality and dependable delivery. School uniforms and institutional garments carry a unique set of demands — specific fabrics, precise sizing across large batches, uniform finishing and strict adherence to colour and style standards. Ayush Creation developed its production workflow around these exact requirements, training its team and organising its processes to meet the expectations of institutional buyers across Mumbai, Navi Mumbai and broader Maharashtra.
+        </p>
+        <p>
+          Today, Ayush Creation continues to serve schools, uniform retailers, wholesalers and institutional buyers with two structured manufacturing models: job-work (where the customer supplies fabric and we manufacture) and complete manufacturing (end-to-end, from fabric sourcing to finished garments). Our commitment remains unchanged — to be a manufacturing partner our clients can count on, season after season.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Section 4: FAQ Accordion ===== -->
+  <section class="section-pad bg-off-white" aria-labelledby="faq-title">
+    <div class="container">
+      <div class="section-header text-center" data-reveal>
+        <span class="eyebrow">Common Questions</span>
+        <span class="divider center"></span>
+        <h2 id="faq-title">Frequently Asked Questions</h2>
+        <p>Answers to the questions we most commonly receive from schools, retailers and institutional buyers.</p>
+      </div>
+
+      <div class="accordion" role="list">
+
+        <div class="accordion-item" role="listitem">
+          <button class="accordion-btn" aria-expanded="false" aria-controls="faq-body-1" id="faq-btn-1">
+            What is the minimum order quantity?
+            <div class="accordion-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+          </button>
+          <div class="accordion-body" id="faq-body-1" role="region" aria-labelledby="faq-btn-1">
+            <div class="accordion-body-inner">
+              Our minimum order quantity is [MOQ] pieces per style and colour. For custom or institutional uniforms with unique specifications, please contact us to discuss your specific requirement — we evaluate each project individually and aim to accommodate buyers at various order volumes. For repeat orders with existing specifications, we are able to offer more flexibility.
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item" role="listitem">
+          <button class="accordion-btn" aria-expanded="false" aria-controls="faq-body-2" id="faq-btn-2">
+            Do you supply outside Mumbai?
+            <div class="accordion-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+          </button>
+          <div class="accordion-body" id="faq-body-2" role="region" aria-labelledby="faq-btn-2">
+            <div class="accordion-body-inner">
+              Yes. While our manufacturing facility is based in Mumbai / Navi Mumbai, we regularly supply to buyers across Maharashtra, including Thane, Pune and other districts. We also supply pan-India for institutional and wholesale orders. Logistics arrangements, freight terms and delivery timelines are discussed and confirmed at the time of order confirmation.
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item" role="listitem">
+          <button class="accordion-btn" aria-expanded="false" aria-controls="faq-body-3" id="faq-btn-3">
+            Can you match a specific fabric or colour?
+            <div class="accordion-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+          </button>
+          <div class="accordion-body" id="faq-body-3" role="region" aria-labelledby="faq-btn-3">
+            <div class="accordion-body-inner">
+              Yes, fabric and colour matching is a standard part of our process for school uniforms and institutional garments. For our complete manufacturing model, we source fabric to match your specification — including specific shades, weaves and fabric compositions. If you have an existing fabric swatch or sample, we use that as a reference. Under our job-work model, you supply the fabric directly, so the material is entirely under your control. We always recommend sharing a reference sample before bulk production begins.
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item" role="listitem">
+          <button class="accordion-btn" aria-expanded="false" aria-controls="faq-body-4" id="faq-btn-4">
+            How long does production take?
+            <div class="accordion-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+          </button>
+          <div class="accordion-body" id="faq-body-4" role="region" aria-labelledby="faq-btn-4">
+            <div class="accordion-body-inner">
+              Standard production lead time is approximately [LEAD_TIME] working days from the date of order confirmation and sample approval, depending on order quantity, garment complexity and current production scheduling. For orders placed during peak school uniform seasons (typically March–May and October–November), we advise placing orders well in advance. We will provide a confirmed delivery timeline when we acknowledge your order. Rush or expedited production may be possible depending on capacity — please discuss your timeline with us at enquiry stage.
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item" role="listitem">
+          <button class="accordion-btn" aria-expanded="false" aria-controls="faq-body-5" id="faq-btn-5">
+            Do you offer sample garments before bulk production?
+            <div class="accordion-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+          </button>
+          <div class="accordion-body" id="faq-body-5" role="region" aria-labelledby="faq-btn-5">
+            <div class="accordion-body-inner">
+              Yes. For all new orders, we produce a pre-production sample for your review and approval before we begin bulk manufacturing. This ensures that the garment meets your specifications for fabric, sizing, fit, construction and finish before the full batch is committed. Sample approval forms a standard step in our order process and helps avoid costly revisions post-production. Sample lead time and any applicable sampling charges are discussed at the enquiry stage.
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CTA Banner ===== -->
+  <section class="cta-banner section-pad-sm">
+    <div class="container">
+      <div class="cta-banner-text" data-reveal>
+        <h2>Ready to Work with Us?</h2>
+        <p>Share your requirement and we will come back to you with a detailed, transparent quotation within 1 working day.</p>
+      </div>
+      <div class="cta-banner-actions" data-reveal data-reveal-delay="100">
+        <a href="contact.html" class="btn btn-primary btn-lg">Request a Quotation</a>
+        <a href="https://wa.me/917524890613?text=Hello%20Ayush%20Creation%2C%20I%20would%20like%20to%20get%20a%20quote." class="btn btn-whatsapp btn-lg" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Chat on WhatsApp
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Footer ===== -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="index.html" class="logo">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52" width="52" height="52" aria-hidden="true"><defs><linearGradient id="navyGrad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#0A1628"/><stop offset="100%" stop-color="#1A3060"/></linearGradient><linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#E8AD3A"/><stop offset="100%" stop-color="#C9942A"/></linearGradient></defs><!-- Background --><rect width="52" height="52" rx="10" fill="url(#navyGrad)"/><!-- Gold border ring --><rect x="2.5" y="2.5" width="47" height="47" rx="8.5" fill="none" stroke="url(#goldGrad)" stroke-width=".8" opacity=".5"/><!-- Stylized A shape --><path d="M11 37 L20 15 L26 28 M18.5 29 L23.5 29" fill="none" stroke="url(#goldGrad)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><!-- Stylized C shape --><path d="M38.5 20 Q28 17 28 26 Q28 35 38.5 32" fill="none" stroke="url(#goldGrad)" stroke-width="2.4" stroke-linecap="round"/><!-- Needle accent top-right --><line x1="40" y1="8" x2="45" y2="13" stroke="url(#goldGrad)" stroke-width="1.5" stroke-linecap="round"/><!-- Needle eye --><ellipse cx="39.5" cy="8.5" rx="1.2" ry=".8" transform="rotate(45 39.5 8.5)" fill="none" stroke="url(#goldGrad)" stroke-width="1.1"/><!-- Thread curve from needle --><path d="M44 12 Q46 20 42 26" fill="none" stroke="url(#goldGrad)" stroke-width="1" stroke-dasharray="2,2" opacity=".7" stroke-linecap="round"/><!-- Bottom text: AC --><text x="26" y="45.5" font-family="Georgia,serif" font-size="7" font-weight="700" fill="#C9942A" text-anchor="middle" letter-spacing="2" opacity=".85">AC</text></svg>
+            <div class="logo-text">
+              <div class="logo-name">Ayush Creation</div>
+              <div class="logo-tagline">Garment Manufacturers</div>
+            </div>
+          </a>
+          <p class="footer-desc">
+            A B2B garment manufacturing company based in Mumbai / Navi Mumbai, Maharashtra — serving schools, retailers, wholesalers and institutions with job-work and complete manufacturing solutions.
+          </p>
+          <div class="footer-social">
+            <a href="#" aria-label="WhatsApp" title="WhatsApp">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            </a>
+            <a href="#" aria-label="Instagram" title="Instagram">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+            </a>
+            <a href="#" aria-label="LinkedIn" title="LinkedIn">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="services.html">Manufacturing Services</a></li>
+            <li><a href="gallery.html">Factory Gallery</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Products</h4>
+          <ul class="footer-links">
+            <li><a href="products.html#school-shirts">School Shirts</a></li>
+            <li><a href="products.html#school-trousers">School Trousers</a></li>
+            <li><a href="products.html#girls-skirts-tunics">Girls' Skirts &amp; Tunics</a></li>
+            <li><a href="products.html#sports-tshirts">Sports T-Shirts</a></li>
+            <li><a href="products.html#track-pants">Track Pants</a></li>
+            <li><a href="products.html#custom-uniforms">Custom Uniforms</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <div class="footer-contact-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><circle cx="12" cy="11" r="3"/></svg>
+            <span>Mumbai / Navi Mumbai,<br>Maharashtra, India</span>
+          </div>
+          <div class="footer-contact-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81"/></svg>
+            <a href="tel:7524890613">7524890613</a>
+          </div>
+          <div class="footer-contact-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,12 2,6"/></svg>
+            <a href="mailto:ayushcreation01@gmail.com">ayushcreation01@gmail.com</a>
+          </div>
+          <a href="https://wa.me/917524890613?text=Hello%20Ayush%20Creation%2C%20I%20would%20like%20to%20enquire%20about%20your%20services." class="footer-whatsapp" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            WhatsApp Us
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container" style="display:contents">
+        <p>&copy; 2024 Ayush Creation. All rights reserved. | Garment Manufacturer, Mumbai / Navi Mumbai.</p>
+        <div class="footer-bottom-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms &amp; Conditions</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===== Floating WhatsApp ===== -->
+  <div class="whatsapp-float" aria-label="Contact via WhatsApp">
+    <div class="whatsapp-float-tooltip">Chat with us on WhatsApp</div>
+    <button class="whatsapp-float-btn" aria-label="Open WhatsApp chat">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    </button>
+  </div>
+
+  <!-- Scroll to top -->
+  <button class="scroll-top" aria-label="Scroll to top">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"/></svg>
+  </button>
+
+  <script src="script.js"></script>
+
+  <script>
+    // ===== FAQ Accordion =====
+    document.querySelectorAll('.accordion-btn').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var expanded = this.getAttribute('aria-expanded') === 'true';
+        // Close all
+        document.querySelectorAll('.accordion-btn').forEach(function(b) {
+          b.setAttribute('aria-expanded', 'false');
+          var body = document.getElementById(b.getAttribute('aria-controls'));
+          if (body) body.classList.remove('open');
+        });
+        // Toggle clicked
+        if (!expanded) {
+          this.setAttribute('aria-expanded', 'true');
+          var targetBody = document.getElementById(this.getAttribute('aria-controls'));
+          if (targetBody) targetBody.classList.add('open');
+        }
+      });
+    });
+  </script>
+</body>
+</html>
+
+
+
+

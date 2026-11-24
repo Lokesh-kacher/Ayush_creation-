@@ -1,0 +1,16 @@
+[
+  {
+    "id": "AC-MWUEOB9Q-956",
+    "createdAt": "2026-11-24T08:01:19.118Z",
+    "name": "Test School Principal",
+    "businessName": "St. Xavier's High School",
+    "phone": "9820123456",
+    "email": "principal@stxaviers.edu.in",
+    "productRequirement": "School Shirts",
+    "manufacturingModel": "Complete Manufacturing",
+    "quantity": "1200 pieces",
+    "message": "Automated verification test enquiry.",
+    "status": "NEW",
+    "ipAddress": "::ffff:127.0.0.1"
+  }
+]
