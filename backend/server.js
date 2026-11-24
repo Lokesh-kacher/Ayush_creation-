@@ -24,7 +24,10 @@ const apiRoutes = require('./routes/api');
 app.use('/api', apiRoutes);
 
 // Serve static frontend files
-const frontendPath = path.join(__dirname, '..', 'frontend');
+const fs = require('fs');
+const frontendPath = fs.existsSync(path.join(__dirname, '..', 'public'))
+  ? path.join(__dirname, '..', 'public')
+  : path.join(__dirname, '..', 'frontend');
 app.use(express.static(frontendPath));
 
 // Fallback: For any GET request not handled by API or static files, serve index.html

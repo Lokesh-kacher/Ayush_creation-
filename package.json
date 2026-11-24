@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Ayush Creation — Premium B2B Garment Manufacturing & Uniforms Website (Full Stack)",
   "scripts": {
+    "build": "echo Build complete",
     "start": "node backend/server.js",
     "dev": "node --watch backend/server.js",
     "server": "node backend/server.js",
