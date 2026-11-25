@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Login — Ayush Creation B2B Management</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="admin.css" />
+  <style>
+    body {
+      background: radial-gradient(circle at 50% 30%, #122040 0%, #0A1628 100%);
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .login-container {
+      width: 100%;
+      max-width: 440px;
+      background: rgba(255, 255, 255, 0.98);
+      border-radius: 20px;
+      padding: 40px 36px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
+      border: 1px solid rgba(201, 148, 42, 0.3);
+    }
+    .login-logo {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      margin-bottom: 28px;
+    }
+    .login-logo svg { width: 54px; height: 54px; margin-bottom: 12px; }
+    .login-logo h1 { font-size: 1.5rem; font-weight: 700; color: #0A1628; margin: 0; }
+    .login-logo p { font-size: 0.75rem; color: #C9942A; text-transform: uppercase; letter-spacing: 0.14em; font-weight: 700; margin-top: 4px; }
+    .login-alert {
+      padding: 10px 14px;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      margin-bottom: 18px;
+      display: none;
+    }
+    .login-alert-danger { background: #FEF2F2; color: #DC2626; border: 1px solid #FECACA; }
+    .login-footer-text { text-align: center; font-size: 0.78rem; color: #64748B; margin-top: 24px; }
+    .login-footer-text a { color: #C9942A; font-weight: 600; }
+  </style>
+</head>
+<body>
+
+  <div class="login-container">
+    <div class="login-logo">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52" aria-hidden="true">
+        <defs>
+          <linearGradient id="navyGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#0A1628"/>
+            <stop offset="100%" stop-color="#1A3060"/>
+          </linearGradient>
+          <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#E8AD3A"/>
+            <stop offset="100%" stop-color="#C9942A"/>
+          </linearGradient>
+        </defs>
+        <rect width="52" height="52" rx="10" fill="url(#navyGrad)"/>
+        <rect x="2.5" y="2.5" width="47" height="47" rx="8.5" fill="none" stroke="url(#goldGrad)" stroke-width=".8" opacity=".5"/>
+        <path d="M11 37 L20 15 L26 28 M18.5 29 L23.5 29" fill="none" stroke="url(#goldGrad)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M38.5 20 Q28 17 28 26 Q28 35 38.5 32" fill="none" stroke="url(#goldGrad)" stroke-width="2.4" stroke-linecap="round"/>
+        <text x="26" y="45.5" font-family="Georgia,serif" font-size="7" font-weight="700" fill="#C9942A" text-anchor="middle" letter-spacing="2">AC</text>
+      </svg>
+      <h1>Ayush Creation</h1>
+      <p>Secure Admin Portal</p>
+    </div>
+
+    <div id="loginAlert" class="login-alert login-alert-danger"></div>
+
+    <form id="adminLoginForm">
+      <div class="form-group">
+        <label for="adminEmail">Email Address</label>
+        <input type="email" id="adminEmail" class="form-control" placeholder="admin@ayushcreation.com" required autocomplete="email" />
+      </div>
+
+      <div class="form-group">
+        <label for="adminPassword">Password</label>
+        <input type="password" id="adminPassword" class="form-control" placeholder="••••••••" required autocomplete="current-password" />
+      </div>
+
+      <div style="margin-top: 24px;">
+        <button type="submit" id="loginBtn" class="btn btn-primary" style="width: 100%; padding: 12px;">
+          Log In to Portal
+        </button>
+      </div>
+    </form>
+
+    <div class="login-footer-text">
+      Authorized personnel only &bull; <a href="../index.html">&larr; Return to Website</a>
+    </div>
+  </div>
+
+  <script src="admin.js"></script>
+  <script>
+    // Redirect if already authenticated
+    if (localStorage.getItem('admin_token')) {
+      window.location.href = 'index.html';
+    }
+
+    const form = document.getElementById('adminLoginForm');
+    const alertBox = document.getElementById('loginAlert');
+    const btn = document.getElementById('loginBtn');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      alertBox.style.display = 'none';
+      btn.disabled = true;
+      btn.textContent = 'Authenticating...';
+
+      const email = document.getElementById('adminEmail').value.trim();
+      const password = document.getElementById('adminPassword').value;
+
+      try {
+        const res = await fetch(`${API_BASE}/auth/login`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email, password })
+        });
+
+        const data = await res.json().catch(() => ({}));
+
+        if (!res.ok) {
+          throw new Error(data.message || (data.errors && data.errors.join('<br>')) || 'Login failed');
+        }
+
+        if (data.data && data.data.accessToken) {
+          localStorage.setItem('admin_token', data.data.accessToken);
+          localStorage.setItem('admin_user', JSON.stringify(data.data.admin));
+          window.location.href = 'index.html';
+        } else {
+          throw new Error('Invalid response from authentication server');
+        }
+      } catch (err) {
+        alertBox.innerHTML = err.message || 'Login failed. Please verify your credentials.';
+        alertBox.style.display = 'block';
+        btn.disabled = false;
+        btn.textContent = 'Log In to Portal';
+      }
+    });
+  </script>
+</body>
+</html>

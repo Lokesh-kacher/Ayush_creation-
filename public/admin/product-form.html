@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Product Editor — Ayush Creation Admin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="admin.css" />
+</head>
+<body>
+
+  <!-- Sidebar -->
+  <aside class="admin-sidebar">
+    <div class="sidebar-brand">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+        <rect width="52" height="52" rx="10" fill="#0A1628"/>
+        <text x="26" y="34" font-family="Georgia,serif" font-size="20" font-weight="700" fill="#C9942A" text-anchor="middle">AC</text>
+      </svg>
+      <div>
+        <div class="sidebar-brand-title">Ayush Creation</div>
+        <div class="sidebar-brand-subtitle">Admin Control</div>
+      </div>
+    </div>
+
+    <nav class="sidebar-nav">
+      <div class="nav-heading">Main</div>
+      <a href="index.html" class="sidebar-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+        <span>Dashboard</span>
+      </a>
+      <a href="enquiries.html" class="sidebar-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/></svg>
+        <span>Enquiries & Leads</span>
+      </a>
+
+      <div class="nav-heading">Catalog</div>
+      <a href="products.html" class="sidebar-link active">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/></svg>
+        <span>Products</span>
+      </a>
+      <a href="categories.html" class="sidebar-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h7"/></svg>
+        <span>Categories</span>
+      </a>
+      <a href="gallery.html" class="sidebar-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+        <span>Gallery & Facility</span>
+      </a>
+
+      <div class="nav-heading">System</div>
+      <a href="settings.html" class="sidebar-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+        <span>Company Settings</span>
+      </a>
+    </nav>
+
+    <div class="sidebar-footer">
+      <div class="admin-user-info">
+        <span id="adminUserName" class="admin-user-name">Admin</span>
+        <span class="admin-user-role">Administrator</span>
+      </div>
+      <button id="logoutBtn" class="btn-logout">Logout</button>
+    </div>
+  </aside>
+
+  <!-- Main Container -->
+  <main class="admin-main">
+    <header class="admin-header">
+      <div class="admin-header-title">
+        <h1 id="pageTitle">Add New Product</h1>
+      </div>
+      <div class="admin-header-actions">
+        <a href="products.html" class="btn btn-secondary">&larr; Back to Products</a>
+      </div>
+    </header>
+
+    <div class="admin-content" style="max-width: 900px;">
+      <form id="productForm">
+        <div class="admin-panel">
+          <div class="panel-header">
+            <h2 class="panel-title">1. Basic Information</h2>
+          </div>
+          <div class="panel-body">
+            <div class="form-grid">
+              <div class="form-group col-full">
+                <label for="pName">Product Name *</label>
+                <input type="text" id="pName" class="form-control" placeholder="e.g. Premium School Uniform Shirts" required />
+              </div>
+
+              <div class="form-group">
+                <label for="pCategory">Category *</label>
+                <select id="pCategory" class="form-control" required>
+                  <option value="">Select Category...</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="pSlug">URL Slug (Optional)</label>
+                <input type="text" id="pSlug" class="form-control" placeholder="auto-generated-from-name" />
+              </div>
+
+              <div class="form-group">
+                <label for="pStatus">Publishing Status</label>
+                <select id="pStatus" class="form-control">
+                  <option value="draft">Draft (Private)</option>
+                  <option value="published" selected>Published (Public Website)</option>
+                </select>
+              </div>
+
+              <div class="form-group" style="display:flex; flex-direction:row; align-items:center; gap:10px; margin-top:24px;">
+                <input type="checkbox" id="pFeatured" style="width:18px; height:18px;" />
+                <label for="pFeatured" style="margin:0; cursor:pointer;">Mark as Featured Product (Highlights on Home page)</label>
+              </div>
+
+              <div class="form-group col-full">
+                <label for="pShortDesc">Short Summary (max 300 chars)</label>
+                <input type="text" id="pShortDesc" class="form-control" placeholder="High-durability polyester-cotton school shirts designed for daily student wear." />
+              </div>
+
+              <div class="form-group col-full">
+                <label for="pDesc">Detailed Product Description *</label>
+                <textarea id="pDesc" class="form-control" placeholder="Describe the stitching quality, collar design, breathability, washing instructions and bulk ordering details..." required></textarea>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="admin-panel">
+          <div class="panel-header">
+            <h2 class="panel-title">2. Product Photography</h2>
+          </div>
+          <div class="panel-body">
+            <div class="form-group">
+              <label>Product Image Source</label>
+              <div style="display:flex; gap:12px; margin-bottom:12px;">
+                <input type="file" id="imageFileInput" accept="image/jpeg,image/png,image/webp" class="form-control" style="padding:8px;" />
+                <button type="button" id="uploadImageBtn" class="btn btn-secondary">Upload to Cloud</button>
+              </div>
+              <input type="url" id="pImageUrl" class="form-control" placeholder="Or paste image URL directly (e.g. images/product-school-shirts.jpg)" />
+            </div>
+
+            <div id="imagePreviewContainer" style="margin-top:14px; display:none;">
+              <label style="font-size:0.78rem; color:#64748B;">Image Preview:</label>
+              <br>
+              <img id="imagePreview" src="" alt="Preview" style="max-width:200px; max-height:200px; border-radius:8px; border:1px solid #CBD5E1; margin-top:4px;" />
+            </div>
+          </div>
+        </div>
+
+        <div class="admin-panel">
+          <div class="panel-header">
+            <h2 class="panel-title">3. B2B Manufacturing Specifications</h2>
+          </div>
+          <div class="panel-body">
+            <div class="form-grid">
+              <div class="form-group">
+                <label for="sFabric">Fabric Type</label>
+                <input type="text" id="sFabric" class="form-control" placeholder="e.g. Oxford, Poplin, Matty" />
+              </div>
+
+              <div class="form-group">
+                <label for="sComposition">Fabric Composition</label>
+                <input type="text" id="sComposition" class="form-control" placeholder="e.g. 67% Poly / 33% Cotton" />
+              </div>
+
+              <div class="form-group">
+                <label for="sGsm">GSM / Weight</label>
+                <input type="text" id="sGsm" class="form-control" placeholder="e.g. 180 - 220 GSM" />
+              </div>
+
+              <div class="form-group">
+                <label for="sSizes">Available Sizes (Comma separated)</label>
+                <input type="text" id="sSizes" class="form-control" placeholder="e.g. 22, 24, 26, 28, 30, 32, 34, 36, 38, 40" />
+              </div>
+
+              <div class="form-group">
+                <label for="sColors">Available Colours (Comma separated)</label>
+                <input type="text" id="sColors" class="form-control" placeholder="e.g. White, Sky Blue, Navy Blue, Maroon" />
+              </div>
+
+              <div class="form-group">
+                <label for="sModels">Manufacturing Models</label>
+                <select id="sModels" class="form-control">
+                  <option value="both">Both Job-Work & Complete Manufacturing</option>
+                  <option value="complete-manufacturing">Complete Manufacturing Only</option>
+                  <option value="job-work">Job-Work Only</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div style="display:flex; justify-content:flex-end; gap:12px; margin-bottom:40px;">
+          <a href="products.html" class="btn btn-secondary">Cancel</a>
+          <button type="submit" id="saveProductBtn" class="btn btn-primary" style="padding:12px 28px;">Save Product</button>
+        </div>
+      </form>
+    </div>
+  </main>
+
+  <script src="admin.js"></script>
+  <script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const productId = urlParams.get('id');
+    let uploadedPublicId = '';
+
+    // Load Categories into dropdown
+    async function initCategories(selectedId = '') {
+      try {
+        const res = await adminFetch('/categories');
+        const sel = document.getElementById('pCategory');
+        sel.innerHTML = '<option value="">Select Category...</option>' + 
+          res.data.map(c => `<option value="${c._id}" ${c._id === selectedId ? 'selected' : ''}>${c.name}</option>`).join('');
+      } catch (err) {
+        showToast('Could not load categories list', 'warning');
+      }
+    }
+
+    // Image file upload
+    document.getElementById('uploadImageBtn').addEventListener('click', async () => {
+      const fileInput = document.getElementById('imageFileInput');
+      if (!fileInput.files || fileInput.files.length === 0) {
+        showToast('Please choose an image file first', 'warning');
+        return;
+      }
+
+      const formData = new FormData();
+      formData.append('images', fileInput.files[0]);
+      formData.append('folder', 'products');
+
+      const btn = document.getElementById('uploadImageBtn');
+      btn.disabled = true;
+      btn.textContent = 'Uploading...';
+
+      try {
+        const res = await adminFetch('/admin/upload', {
+          method: 'POST',
+          body: formData
+        });
+
+        const uploaded = Array.isArray(res.data) ? res.data[0] : res.data;
+        document.getElementById('pImageUrl').value = uploaded.url;
+        uploadedPublicId = uploaded.publicId || '';
+        showImagePreview(uploaded.url);
+        showToast('Image uploaded successfully!', 'success');
+      } catch (err) {
+        showToast('Image upload failed: ' + err.message, 'error');
+      } finally {
+        btn.disabled = false;
+        btn.textContent = 'Upload to Cloud';
+      }
+    });
+
+    document.getElementById('pImageUrl').addEventListener('input', (e) => {
+      showImagePreview(e.target.value.trim());
+    });
+
+    function showImagePreview(url) {
+      const container = document.getElementById('imagePreviewContainer');
+      const img = document.getElementById('imagePreview');
+      if (url) {
+        img.src = url;
+        container.style.display = 'block';
+      } else {
+        container.style.display = 'none';
+      }
+    }
+
+    // Populate data if editing
+    async function loadProductForEdit() {
+      if (!productId) {
+        await initCategories();
+        return;
+      }
+
+      document.getElementById('pageTitle').textContent = 'Edit Product';
+      try {
+        const res = await adminFetch(`/admin/products/admin/${productId}`);
+        const p = res.data;
+
+        await initCategories(p.category ? p.category._id || p.category : '');
+
+        document.getElementById('pName').value = p.name;
+        document.getElementById('pSlug').value = p.slug;
+        document.getElementById('pStatus').value = p.status;
+        document.getElementById('pFeatured').checked = p.featured;
+        document.getElementById('pShortDesc').value = p.shortDescription || '';
+        document.getElementById('pDesc').value = p.description || '';
+
+        if (p.images && p.images[0]) {
+          document.getElementById('pImageUrl').value = p.images[0].url;
+          uploadedPublicId = p.images[0].publicId || '';
+          showImagePreview(p.images[0].url);
+        }
+
+        const specs = p.specifications || {};
+        document.getElementById('sFabric').value = specs.fabric || '';
+        document.getElementById('sComposition').value = specs.fabricComposition || '';
+        document.getElementById('sGsm').value = specs.gsm || '';
+        document.getElementById('sSizes').value = (specs.availableSizes || []).join(', ');
+        document.getElementById('sColors').value = (specs.colour || []).join(', ');
+      } catch (err) {
+        showToast('Error loading product details: ' + err.message, 'error');
+      }
+    }
+
+    // Form submit
+    document.getElementById('productForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const saveBtn = document.getElementById('saveProductBtn');
+      saveBtn.disabled = true;
+      saveBtn.textContent = 'Saving...';
+
+      const imageUrl = document.getElementById('pImageUrl').value.trim();
+      const images = imageUrl ? [{ url: imageUrl, publicId: uploadedPublicId, isPrimary: true }] : [];
+
+      const payload = {
+        name: document.getElementById('pName').value.trim(),
+        category: document.getElementById('pCategory').value,
+        slug: document.getElementById('pSlug').value.trim() || undefined,
+        status: document.getElementById('pStatus').value,
+        featured: document.getElementById('pFeatured').checked,
+        shortDescription: document.getElementById('pShortDesc').value.trim(),
+        description: document.getElementById('pDesc').value.trim(),
+        images,
+        specifications: {
+          fabric: document.getElementById('sFabric').value.trim(),
+          fabricComposition: document.getElementById('sComposition').value.trim(),
+          gsm: document.getElementById('sGsm').value.trim(),
+          availableSizes: document.getElementById('sSizes').value.split(',').map(s => s.trim()).filter(Boolean),
+          colour: document.getElementById('sColors').value.split(',').map(s => s.trim()).filter(Boolean),
+          manufacturingModels: [document.getElementById('sModels').value]
+        }
+      };
+
+      try {
+        if (productId) {
+          await adminFetch(`/admin/products/admin/${productId}`, {
+            method: 'PUT',
+            body: JSON.stringify(payload)
+          });
+          showToast('Product updated successfully!', 'success');
+        } else {
+          await adminFetch('/admin/products/admin', {
+            method: 'POST',
+            body: JSON.stringify(payload)
+          });
+          showToast('Product created successfully!', 'success');
+        }
+
+        setTimeout(() => {
+          window.location.href = 'products.html';
+        }, 1200);
+      } catch (err) {
+        showToast('Save failed: ' + (err.message || (err.errors && err.errors.join('<br>'))), 'error');
+        saveBtn.disabled = false;
+        saveBtn.textContent = 'Save Product';
+      }
+    });
+
+    loadProductForEdit();
+  </script>
+</body>
+</html>

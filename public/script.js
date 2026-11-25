@@ -149,29 +149,30 @@
       };
 
       try {
-        const response = await fetch('/api/enquiries', {
+        const apiFetch = window.AYUSH_CONFIG ? window.AYUSH_CONFIG.apiFetch : fetch;
+        const endpoint = window.AYUSH_CONFIG ? '/enquiries' : '/api/v1/enquiries';
+
+        const result = await apiFetch(endpoint, {
           method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(formData)
         });
 
-        const result = await response.json();
-
-        if (response.ok && result.success) {
+        if (result && result.success) {
           const formFields = contactForm.querySelector('.form-fields');
           const successMsg = document.getElementById('formSuccess') || contactForm.querySelector('.form-success');
           if (formFields && successMsg) {
             formFields.style.display = 'none';
             successMsg.style.display = 'block';
-            if (result.enquiryId) {
+            const enquiryRef = (result.data && result.data.enquiryNumber) || result.enquiryId;
+            if (enquiryRef) {
               const idEl = successMsg.querySelector('.enquiry-id-badge');
               if (idEl) {
-                idEl.textContent = 'Reference ID: ' + result.enquiryId;
+                idEl.textContent = 'Reference ID: ' + enquiryRef;
               } else {
                 const badge = document.createElement('div');
                 badge.className = 'enquiry-id-badge';
                 badge.style.cssText = 'margin-top:12px;padding:6px 14px;background:#0A1628;color:#F0C060;display:inline-block;border-radius:6px;font-size:0.85rem;font-weight:600;letter-spacing:0.05em;';
-                badge.textContent = 'Reference ID: ' + result.enquiryId;
+                badge.textContent = 'Reference ID: ' + enquiryRef;
                 successMsg.appendChild(badge);
               }
             }
@@ -184,13 +185,11 @@
           }
         }
       } catch (err) {
-        console.warn('Backend unavailable, showing success state fallback:', err);
-        // Fallback for standalone frontend viewing
-        const formFields = contactForm.querySelector('.form-fields');
-        const successMsg = document.getElementById('formSuccess') || contactForm.querySelector('.form-success');
-        if (formFields && successMsg) {
-          formFields.style.display = 'none';
-          successMsg.style.display = 'block';
+        console.warn('Backend enquiry submission failed, using client fallback:', err);
+        alert(err.message || 'Submission failed. Please connect with us directly on WhatsApp (+91 7524890613).');
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = originalBtnHtml;
         }
       }
     });

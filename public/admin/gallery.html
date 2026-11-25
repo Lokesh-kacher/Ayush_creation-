@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Manage Gallery — Ayush Creation Admin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="admin.css" />
+  <style>
+    .gallery-admin-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 20px;
+    }
+    .gallery-admin-card {
+      background: #FFFFFF;
+      border: 1px solid var(--admin-border);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: var(--admin-shadow);
+      display: flex;
+      flex-direction: column;
+    }
+    .gallery-admin-card img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+      background: #F1F5F9;
+    }
+    .gallery-admin-body {
+      padding: 14px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Sidebar -->
+  <aside class="admin-sidebar">
+    <div class="sidebar-brand">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+        <rect width="52" height="52" rx="10" fill="#0A1628"/>
+        <text x="26" y="34" font-family="Georgia,serif" font-size="20" font-weight="700" fill="#C9942A" text-anchor="middle">AC</text>
+      </svg>
+      <div>
+        <div class="sidebar-brand-title">Ayush Creation</div>
+        <div class="sidebar-brand-subtitle">Admin Control</div>
+      </div>
+    </div>
+
+    <nav class="sidebar-nav">
+      <div class="nav-heading">Main</div>
+      <a href="index.html" class="sidebar-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+        <span>Dashboard</span>
+      </a>
+      <a href="enquiries.html" class="sidebar-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/></svg>
+        <span>Enquiries & Leads</span>
+      </a>
+
+      <div class="nav-heading">Catalog</div>
+      <a href="products.html" class="sidebar-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/></svg>
+        <span>Products</span>
+      </a>
+      <a href="categories.html" class="sidebar-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h7"/></svg>
+        <span>Categories</span>
+      </a>
+      <a href="gallery.html" class="sidebar-link active">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+        <span>Gallery & Facility</span>
+      </a>
+
+      <div class="nav-heading">System</div>
+      <a href="settings.html" class="sidebar-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+        <span>Company Settings</span>
+      </a>
+    </nav>
+
+    <div class="sidebar-footer">
+      <div class="admin-user-info">
+        <span id="adminUserName" class="admin-user-name">Admin</span>
+        <span class="admin-user-role">Administrator</span>
+      </div>
+      <button id="logoutBtn" class="btn-logout">Logout</button>
+    </div>
+  </aside>
+
+  <!-- Main Container -->
+  <main class="admin-main">
+    <header class="admin-header">
+      <div class="admin-header-title">
+        <h1>Factory & Gallery Photos</h1>
+      </div>
+      <div class="admin-header-actions">
+        <button onclick="openGalleryModal()" class="btn btn-primary">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          Upload Photo
+        </button>
+      </div>
+    </header>
+
+    <div class="admin-content">
+      <div id="galleryContainer" class="gallery-admin-grid">
+        <div style="grid-column: 1 / -1; text-align:center; padding:40px; color:#64748B;">Loading gallery items...</div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Upload Modal -->
+  <div id="galleryModal" class="modal-backdrop">
+    <div class="modal-box" style="max-width: 500px;">
+      <div class="modal-header">
+        <h3 class="modal-title">Upload Gallery Photo</h3>
+        <button onclick="closeModal('galleryModal')" class="modal-close">&times;</button>
+      </div>
+      <form id="galleryUploadForm">
+        <div class="modal-body">
+          <div class="form-group">
+            <label for="gTitle">Photo Title *</label>
+            <input type="text" id="gTitle" class="form-control" placeholder="e.g. Modern Stitching Floor" required />
+          </div>
+
+          <div class="form-group">
+            <label for="gCategory">Category *</label>
+            <select id="gCategory" class="form-control" required>
+              <option value="factory">Factory Facility</option>
+              <option value="production">Production & Stitching</option>
+              <option value="products">Finished Uniforms</option>
+              <option value="machinery">Machinery & Cutting</option>
+              <option value="other">Other Operations</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="gFile">Select Image File *</label>
+            <input type="file" id="gFile" accept="image/jpeg,image/png,image/webp" class="form-control" style="padding:8px;" />
+            <span style="font-size:0.75rem; color:#64748B; margin-top:4px;">Supported: JPG, PNG, WebP (Max 5MB)</span>
+          </div>
+
+          <div class="form-group">
+            <label for="gUrl">Or Direct Image URL</label>
+            <input type="url" id="gUrl" class="form-control" placeholder="https://..." />
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" onclick="closeModal('galleryModal')" class="btn btn-secondary">Cancel</button>
+          <button type="submit" id="saveGalleryBtn" class="btn btn-primary">Upload & Publish</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="admin.js"></script>
+  <script>
+    async function loadGallery() {
+      try {
+        const res = await adminFetch('/admin/gallery/admin');
+        const items = res.data;
+        const container = document.getElementById('galleryContainer');
+
+        if (items.length === 0) {
+          container.innerHTML = '<div style="grid-column:1/-1; text-align:center; padding:40px; color:#64748B;">No gallery photos uploaded yet. Click "Upload Photo" to display factory & garment images on your public site.</div>';
+          return;
+        }
+
+        container.innerHTML = items.map(img => `
+          <div class="gallery-admin-card">
+            <img src="${img.imageUrl}" alt="${img.title}" loading="lazy" />
+            <div class="gallery-admin-body">
+              <div>
+                <span class="badge badge-published" style="font-size:0.68rem; margin-bottom:6px;">${img.category}</span>
+                <h4 style="font-size:0.95rem; margin:0 0 6px 0;">${img.title}</h4>
+              </div>
+              <div style="display:flex; justify-content:space-between; align-items:center; margin-top:12px; border-top:1px solid #E2E8F0; padding-top:10px;">
+                <span style="font-size:0.72rem; color:#64748B;">${formatDate(img.createdAt)}</span>
+                <button onclick="deleteGalleryItem('${img._id}', '${img.title.replace(/'/g, "\\'")}')" class="btn btn-sm btn-danger">Delete</button>
+              </div>
+            </div>
+          </div>
+        `).join('');
+      } catch (err) {
+        showToast('Error loading gallery: ' + err.message, 'error');
+      }
+    }
+
+    function openGalleryModal() {
+      document.getElementById('gTitle').value = '';
+      document.getElementById('gFile').value = '';
+      document.getElementById('gUrl').value = '';
+      openModal('galleryModal');
+    }
+
+    document.getElementById('galleryUploadForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const btn = document.getElementById('saveGalleryBtn');
+      btn.disabled = true;
+      btn.textContent = 'Uploading...';
+
+      const title = document.getElementById('gTitle').value.trim();
+      const category = document.getElementById('gCategory').value;
+      const fileInput = document.getElementById('gFile');
+      const urlInput = document.getElementById('gUrl').value.trim();
+
+      const formData = new FormData();
+      formData.append('title', title);
+      formData.append('category', category);
+
+      if (fileInput.files && fileInput.files.length > 0) {
+        formData.append('image', fileInput.files[0]);
+      } else if (urlInput) {
+        formData.append('imageUrl', urlInput);
+      } else {
+        showToast('Please select a photo file or enter an image URL', 'warning');
+        btn.disabled = false;
+        btn.textContent = 'Upload & Publish';
+        return;
+      }
+
+      try {
+        await adminFetch('/admin/gallery/admin', {
+          method: 'POST',
+          body: formData
+        });
+        showToast('Gallery image uploaded successfully!', 'success');
+        closeModal('galleryModal');
+        loadGallery();
+      } catch (err) {
+        showToast(err.message || 'Upload failed', 'error');
+      } finally {
+        btn.disabled = false;
+        btn.textContent = 'Upload & Publish';
+      }
+    });
+
+    async function deleteGalleryItem(id, title) {
+      if (!confirm(`Delete gallery image "${title}"?`)) return;
+      try {
+        await adminFetch(`/admin/gallery/admin/${id}`, { method: 'DELETE' });
+        showToast('Gallery image deleted', 'success');
+        loadGallery();
+      } catch (err) {
+        showToast('Delete failed: ' + err.message, 'error');
+      }
+    }
+
+    loadGallery();
+  </script>
+</body>
+</html>

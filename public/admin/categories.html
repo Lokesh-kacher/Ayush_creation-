@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Manage Categories — Ayush Creation Admin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="admin.css" />
+</head>
+<body>
+
+  <!-- Sidebar -->
+  <aside class="admin-sidebar">
+    <div class="sidebar-brand">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+        <rect width="52" height="52" rx="10" fill="#0A1628"/>
+        <text x="26" y="34" font-family="Georgia,serif" font-size="20" font-weight="700" fill="#C9942A" text-anchor="middle">AC</text>
+      </svg>
+      <div>
+        <div class="sidebar-brand-title">Ayush Creation</div>
+        <div class="sidebar-brand-subtitle">Admin Control</div>
+      </div>
+    </div>
+
+    <nav class="sidebar-nav">
+      <div class="nav-heading">Main</div>
+      <a href="index.html" class="sidebar-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+        <span>Dashboard</span>
+      </a>
+      <a href="enquiries.html" class="sidebar-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/></svg>
+        <span>Enquiries & Leads</span>
+      </a>
+
+      <div class="nav-heading">Catalog</div>
+      <a href="products.html" class="sidebar-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/></svg>
+        <span>Products</span>
+      </a>
+      <a href="categories.html" class="sidebar-link active">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h7"/></svg>
+        <span>Categories</span>
+      </a>
+      <a href="gallery.html" class="sidebar-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+        <span>Gallery & Facility</span>
+      </a>
+
+      <div class="nav-heading">System</div>
+      <a href="settings.html" class="sidebar-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+        <span>Company Settings</span>
+      </a>
+    </nav>
+
+    <div class="sidebar-footer">
+      <div class="admin-user-info">
+        <span id="adminUserName" class="admin-user-name">Admin</span>
+        <span class="admin-user-role">Administrator</span>
+      </div>
+      <button id="logoutBtn" class="btn-logout">Logout</button>
+    </div>
+  </aside>
+
+  <!-- Main Container -->
+  <main class="admin-main">
+    <header class="admin-header">
+      <div class="admin-header-title">
+        <h1>Product Categories</h1>
+      </div>
+      <div class="admin-header-actions">
+        <button onclick="openCreateCategoryModal()" class="btn btn-primary">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          New Category
+        </button>
+      </div>
+    </header>
+
+    <div class="admin-content" style="max-width: 900px;">
+      <div class="admin-panel">
+        <div class="panel-header">
+          <h2 class="panel-title">Active & Stored Categories</h2>
+        </div>
+        <div class="panel-body" style="padding:0;">
+          <div class="table-responsive">
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th>Category Name</th>
+                  <th>URL Slug</th>
+                  <th>Products Assigned</th>
+                  <th>Status</th>
+                  <th>Sort Order</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="categoriesTableBody">
+                <tr><td colspan="6" style="text-align:center; padding:32px;">Loading categories...</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Category Modal -->
+  <div id="categoryModal" class="modal-backdrop">
+    <div class="modal-box" style="max-width: 500px;">
+      <div class="modal-header">
+        <h3 class="modal-title" id="catModalTitle">Add Category</h3>
+        <button onclick="closeModal('categoryModal')" class="modal-close">&times;</button>
+      </div>
+      <form id="categoryForm">
+        <div class="modal-body">
+          <input type="hidden" id="catEditId" />
+          <div class="form-group">
+            <label for="catName">Category Name *</label>
+            <input type="text" id="catName" class="form-control" placeholder="e.g. School Shirts" required />
+          </div>
+          <div class="form-group">
+            <label for="catSlug">Slug (Optional)</label>
+            <input type="text" id="catSlug" class="form-control" placeholder="auto-generated-from-name" />
+          </div>
+          <div class="form-group">
+            <label for="catDesc">Description</label>
+            <input type="text" id="catDesc" class="form-control" placeholder="Brief summary of uniform range" />
+          </div>
+          <div class="form-group">
+            <label for="catSort">Sort Order</label>
+            <input type="number" id="catSort" class="form-control" value="0" />
+          </div>
+          <div class="form-group" style="flex-direction:row; gap:10px; align-items:center;">
+            <input type="checkbox" id="catActive" checked style="width:18px; height:18px;" />
+            <label for="catActive" style="margin:0; cursor:pointer;">Active (Visible in menus and product filters)</label>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" onclick="closeModal('categoryModal')" class="btn btn-secondary">Cancel</button>
+          <button type="submit" id="saveCatBtn" class="btn btn-primary">Save Category</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="admin.js"></script>
+  <script>
+    let allCategories = [];
+
+    async function loadCategories() {
+      try {
+        const res = await adminFetch('/admin/categories/admin');
+        allCategories = res.data;
+
+        const tbody = document.getElementById('categoriesTableBody');
+        if (allCategories.length === 0) {
+          tbody.innerHTML = '<tr><td colspan="6" style="text-align:center; padding:32px; color:#64748B;">No categories created yet. Click "New Category" to get started.</td></tr>';
+          return;
+        }
+
+        tbody.innerHTML = allCategories.map(c => `
+          <tr>
+            <td><strong>${c.name}</strong></td>
+            <td><code style="background:#F1F5F9; padding:2px 6px; border-radius:4px; font-size:0.8rem;">${c.slug}</code></td>
+            <td><span class="badge ${c.productCount > 0 ? 'badge-new' : 'badge-draft'}">${c.productCount} product(s)</span></td>
+            <td>${c.isActive ? '<span class="badge badge-published">Active</span>' : '<span class="badge badge-draft">Inactive</span>'}</td>
+            <td>${c.sortOrder || 0}</td>
+            <td>
+              <div style="display:flex; gap:6px;">
+                <button onclick="editCategory('${c._id}')" class="btn btn-sm btn-secondary">Edit</button>
+                <button onclick="deleteCategory('${c._id}', '${c.name.replace(/'/g, "\\'")}', ${c.productCount})" class="btn btn-sm btn-danger">Delete</button>
+              </div>
+            </td>
+          </tr>
+        `).join('');
+      } catch (err) {
+        showToast('Error loading categories: ' + err.message, 'error');
+      }
+    }
+
+    function openCreateCategoryModal() {
+      document.getElementById('catModalTitle').textContent = 'Add Category';
+      document.getElementById('catEditId').value = '';
+      document.getElementById('catName').value = '';
+      document.getElementById('catSlug').value = '';
+      document.getElementById('catDesc').value = '';
+      document.getElementById('catSort').value = '0';
+      document.getElementById('catActive').checked = true;
+      openModal('categoryModal');
+    }
+
+    function editCategory(id) {
+      const c = allCategories.find(item => item._id === id);
+      if (!c) return;
+
+      document.getElementById('catModalTitle').textContent = 'Edit Category';
+      document.getElementById('catEditId').value = c._id;
+      document.getElementById('catName').value = c.name;
+      document.getElementById('catSlug').value = c.slug;
+      document.getElementById('catDesc').value = c.description || '';
+      document.getElementById('catSort').value = c.sortOrder || 0;
+      document.getElementById('catActive').checked = c.isActive;
+      openModal('categoryModal');
+    }
+
+    document.getElementById('categoryForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const id = document.getElementById('catEditId').value;
+      const saveBtn = document.getElementById('saveCatBtn');
+      saveBtn.disabled = true;
+
+      const payload = {
+        name: document.getElementById('catName').value.trim(),
+        slug: document.getElementById('catSlug').value.trim() || undefined,
+        description: document.getElementById('catDesc').value.trim(),
+        sortOrder: parseInt(document.getElementById('catSort').value, 10) || 0,
+        isActive: document.getElementById('catActive').checked
+      };
+
+      try {
+        if (id) {
+          await adminFetch(`/admin/categories/admin/${id}`, {
+            method: 'PUT',
+            body: JSON.stringify(payload)
+          });
+          showToast('Category updated successfully!', 'success');
+        } else {
+          await adminFetch('/admin/categories/admin', {
+            method: 'POST',
+            body: JSON.stringify(payload)
+          });
+          showToast('Category created successfully!', 'success');
+        }
+        closeModal('categoryModal');
+        loadCategories();
+      } catch (err) {
+        showToast(err.message || 'Error saving category', 'error');
+      } finally {
+        saveBtn.disabled = false;
+      }
+    });
+
+    async function deleteCategory(id, name, count) {
+      if (count > 0) {
+        alert(`Cannot delete category "${name}" because it currently has ${count} product(s) assigned to it. Please reassign or delete those products first.`);
+        return;
+      }
+
+      if (!confirm(`Are you sure you want to delete category "${name}"?`)) return;
+
+      try {
+        await adminFetch(`/admin/categories/admin/${id}`, { method: 'DELETE' });
+        showToast(`Category "${name}" deleted`, 'success');
+        loadCategories();
+      } catch (err) {
+        showToast('Delete failed: ' + err.message, 'error');
+      }
+    }
+
+    loadCategories();
+  </script>
+</body>
+</html>

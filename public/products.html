@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -411,9 +411,45 @@
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"/></svg>
   </button>
 
+  <script src="js/api-config.js"></script>
   <script src="script.js"></script>
+  <script>
+    (async function loadDynamicProducts() {
+      const grid = document.querySelector('.products-grid');
+      if (!grid || !window.AYUSH_CONFIG) return;
+      try {
+        const res = await window.AYUSH_CONFIG.apiFetch('/products?limit=50');
+        const products = res.data?.products;
+        if (!products || products.length === 0) return;
+
+        grid.innerHTML = products.map(p => {
+          const imgUrl = (p.images && p.images[0] && p.images[0].url) ? p.images[0].url : 'images/product_school_shirts.jpg';
+          const catName = p.category?.name || 'Garment';
+          const specs = [];
+          if (p.specifications?.fabric) specs.push(p.specifications.fabric);
+          if (p.specifications?.gsm) specs.push(p.specifications.gsm);
+          if (p.specifications?.availableSizes) specs.push('Sizes: ' + p.specifications.availableSizes);
+          return `
+            <div class="product-card reveal" id="${p.slug || ''}">
+              <div class="product-card-img">
+                <img src="${imgUrl}" alt="${p.name}" loading="lazy">
+                <span class="product-badge">${catName}</span>
+              </div>
+              <div class="product-card-body">
+                <h3>${p.name}</h3>
+                <p>${p.shortDescription || p.description || ''}</p>
+                ${specs.length ? `<div class="product-specs">${specs.map(s => `<span>${s}</span>`).join('')}</div>` : ''}
+                <a href="contact.html?product=${encodeURIComponent(p.name)}" class="btn btn-outline btn-sm" style="margin-top:16px; width:100%; text-align:center;">Enquire Now</a>
+              </div>
+            </div>
+          `;
+        }).join('');
+      } catch (err) {}
+    })();
+  </script>
 </body>
 </html>
+
 
 
 

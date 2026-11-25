@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -597,6 +597,7 @@
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"/></svg>
   </button>
 
+  <script src="js/api-config.js"></script>
   <script src="script.js"></script>
 
   <script>
@@ -677,9 +678,32 @@
     document.addEventListener('keydown', function(e) {
       if (e.key === 'Escape') closeLightbox();
     });
+
+    (async function loadDynamicGallery() {
+      const grid = document.getElementById('galleryGrid');
+      if (!grid || !window.AYUSH_CONFIG) return;
+      try {
+        const res = await window.AYUSH_CONFIG.apiFetch('/gallery');
+        const items = res.data?.items;
+        if (!items || items.length === 0) return;
+
+        grid.innerHTML = items.map(item => `
+          <div class="gallery-item" data-category="${item.category || 'other'}" tabindex="0" role="button" aria-label="${item.title}">
+            <div class="gallery-placeholder" style="padding:0;">
+              <img src="${item.imageUrl}" alt="${item.title}" loading="lazy" style="width:100%;height:100%;object-fit:cover;border-radius:12px;">
+            </div>
+            <div class="gallery-caption">${item.title}</div>
+          </div>
+        `).join('');
+
+        // Re-bind filter & lightbox for dynamic items
+        galleryItems = document.querySelectorAll('.gallery-item');
+      } catch (err) {}
+    })();
   </script>
 </body>
 </html>
+
 
 
 

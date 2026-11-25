@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Manage Enquiries — Ayush Creation Admin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="admin.css" />
+</head>
+<body>
+
+  <!-- Sidebar -->
+  <aside class="admin-sidebar">
+    <div class="sidebar-brand">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+        <rect width="52" height="52" rx="10" fill="#0A1628"/>
+        <text x="26" y="34" font-family="Georgia,serif" font-size="20" font-weight="700" fill="#C9942A" text-anchor="middle">AC</text>
+      </svg>
+      <div>
+        <div class="sidebar-brand-title">Ayush Creation</div>
+        <div class="sidebar-brand-subtitle">Admin Control</div>
+      </div>
+    </div>
+
+    <nav class="sidebar-nav">
+      <div class="nav-heading">Main</div>
+      <a href="index.html" class="sidebar-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+        <span>Dashboard</span>
+      </a>
+      <a href="enquiries.html" class="sidebar-link active">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        <span>Enquiries & Leads</span>
+      </a>
+
+      <div class="nav-heading">Catalog</div>
+      <a href="products.html" class="sidebar-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/></svg>
+        <span>Products</span>
+      </a>
+      <a href="categories.html" class="sidebar-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h7"/></svg>
+        <span>Categories</span>
+      </a>
+      <a href="gallery.html" class="sidebar-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+        <span>Gallery & Facility</span>
+      </a>
+
+      <div class="nav-heading">System</div>
+      <a href="settings.html" class="sidebar-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+        <span>Company Settings</span>
+      </a>
+    </nav>
+
+    <div class="sidebar-footer">
+      <div class="admin-user-info">
+        <span id="adminUserName" class="admin-user-name">Admin</span>
+        <span class="admin-user-role">Administrator</span>
+      </div>
+      <button id="logoutBtn" class="btn-logout">Logout</button>
+    </div>
+  </aside>
+
+  <!-- Main Container -->
+  <main class="admin-main">
+    <header class="admin-header">
+      <div class="admin-header-title">
+        <h1>B2B Quotation Enquiries & Leads</h1>
+      </div>
+      <div class="admin-header-actions">
+        <button onclick="loadEnquiries()" class="btn btn-secondary">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg>
+          Refresh
+        </button>
+      </div>
+    </header>
+
+    <div class="admin-content">
+      <!-- Filter Bar -->
+      <div class="admin-panel" style="margin-bottom: 20px;">
+        <div class="panel-body" style="padding: 16px 20px;">
+          <div style="display:flex; gap:14px; flex-wrap:wrap; align-items:center;">
+            <div style="flex:1; min-width:220px;">
+              <input type="text" id="searchInput" class="form-control" placeholder="Search by name, school, phone, ref ID..." />
+            </div>
+            <div style="width:180px;">
+              <select id="statusFilter" class="form-control">
+                <option value="">All Statuses</option>
+                <option value="new">New</option>
+                <option value="contacted">Contacted</option>
+                <option value="qualified">Qualified</option>
+                <option value="quotation-sent">Quotation Sent</option>
+                <option value="follow-up">Follow Up</option>
+                <option value="converted">Converted</option>
+                <option value="closed">Closed</option>
+              </select>
+            </div>
+            <div style="width:160px;">
+              <select id="customerTypeFilter" class="form-control">
+                <option value="">All Client Types</option>
+                <option value="school">School</option>
+                <option value="retailer">Retailer</option>
+                <option value="wholesaler">Wholesaler</option>
+                <option value="institution">Institution</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+            <button onclick="applyFilters()" class="btn btn-primary">Filter</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Enquiries Table -->
+      <div class="admin-panel">
+        <div class="panel-header">
+          <h2 class="panel-title" id="enquiriesCountTitle">Enquiries</h2>
+        </div>
+        <div class="panel-body" style="padding:0;">
+          <div class="table-responsive">
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th>Ref ID</th>
+                  <th>Contact Person</th>
+                  <th>School / Business</th>
+                  <th>Phone / WhatsApp</th>
+                  <th>Product & Qty</th>
+                  <th>Model</th>
+                  <th>Status</th>
+                  <th>Date</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="enquiriesTableBody">
+                <tr><td colspan="9" style="text-align:center; padding:32px;">Loading leads...</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Details & Notes Modal -->
+  <div id="enquiryModal" class="modal-backdrop">
+    <div class="modal-box">
+      <div class="modal-header">
+        <h3 class="modal-title" id="modalRefTitle">Enquiry Details</h3>
+        <button onclick="closeModal('enquiryModal')" class="modal-close">&times;</button>
+      </div>
+      <div class="modal-body" id="modalEnquiryContent">
+        <!-- populated dynamically -->
+      </div>
+      <div class="modal-footer">
+        <button onclick="closeModal('enquiryModal')" class="btn btn-secondary">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="admin.js"></script>
+  <script>
+    let currentEnquiries = [];
+
+    // Parse URL query parameter for search (e.g. from Dashboard click)
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.get('search')) {
+      document.getElementById('searchInput').value = urlParams.get('search');
+    }
+
+    async function loadEnquiries() {
+      const search = document.getElementById('searchInput').value.trim();
+      const status = document.getElementById('statusFilter').value;
+      const customerType = document.getElementById('customerTypeFilter').value;
+
+      let query = `?limit=100`;
+      if (search) query += `&search=${encodeURIComponent(search)}`;
+      if (status) query += `&status=${encodeURIComponent(status)}`;
+      if (customerType) query += `&customerType=${encodeURIComponent(customerType)}`;
+
+      try {
+        const res = await adminFetch(`/admin/enquiries${query}`);
+        currentEnquiries = res.data;
+        document.getElementById('enquiriesCountTitle').textContent = `Total Leads: ${res.meta.total}`;
+
+        const tbody = document.getElementById('enquiriesTableBody');
+        if (currentEnquiries.length === 0) {
+          tbody.innerHTML = '<tr><td colspan="9" style="text-align:center; padding:32px; color:#64748B;">No matching quotation leads found.</td></tr>';
+          return;
+        }
+
+        tbody.innerHTML = currentEnquiries.map(enq => {
+          const cleanPhone = enq.phone.replace(/[^0-9]/g, '');
+          const waUrl = `https://wa.me/${cleanPhone}?text=${encodeURIComponent(`Hello ${enq.name}, regarding your quotation enquiry [${enq.enquiryNumber}] at Ayush Creation...`)}`;
+          
+          return `
+            <tr>
+              <td><strong>${enq.enquiryNumber}</strong></td>
+              <td>${enq.name}</td>
+              <td>${enq.businessName || 'Direct Buyer'}</td>
+              <td>
+                <a href="tel:${enq.phone}" style="font-weight:600; color:#0A1628;">${enq.phone}</a>
+                <br>
+                <a href="${waUrl}" target="_blank" style="font-size:0.75rem; color:#059669; font-weight:600;">Chat on WhatsApp &rarr;</a>
+              </td>
+              <td>${enq.product}<br><span style="font-size:0.75rem; color:#64748B;">Qty: ${enq.quantity}</span></td>
+              <td><span style="font-size:0.78rem; text-transform:capitalize;">${enq.manufacturingModel}</span></td>
+              <td>
+                <select onchange="changeStatus('${enq._id}', this.value)" style="padding:4px 8px; border-radius:6px; font-size:0.8rem; border:1px solid #CBD5E1; background:#FFF;">
+                  <option value="new" ${enq.status === 'new' ? 'selected' : ''}>New</option>
+                  <option value="contacted" ${enq.status === 'contacted' ? 'selected' : ''}>Contacted</option>
+                  <option value="qualified" ${enq.status === 'qualified' ? 'selected' : ''}>Qualified</option>
+                  <option value="quotation-sent" ${enq.status === 'quotation-sent' ? 'selected' : ''}>Quotation Sent</option>
+                  <option value="follow-up" ${enq.status === 'follow-up' ? 'selected' : ''}>Follow Up</option>
+                  <option value="converted" ${enq.status === 'converted' ? 'selected' : ''}>Converted</option>
+                  <option value="closed" ${enq.status === 'closed' ? 'selected' : ''}>Closed</option>
+                </select>
+              </td>
+              <td>${formatDate(enq.createdAt)}</td>
+              <td>
+                <button onclick="viewEnquiryDetails('${enq._id}')" class="btn btn-sm btn-secondary" title="View details & notes">Details</button>
+              </td>
+            </tr>
+          `;
+        }).join('');
+      } catch (err) {
+        showToast('Failed to load enquiries: ' + err.message, 'error');
+      }
+    }
+
+    async function changeStatus(id, newStatus) {
+      try {
+        await adminFetch(`/admin/enquiries/${id}/status`, {
+          method: 'PATCH',
+          body: JSON.stringify({ status: newStatus })
+        });
+        showToast(`Status updated to "${newStatus}"`, 'success');
+      } catch (err) {
+        showToast('Error updating status: ' + err.message, 'error');
+        loadEnquiries();
+      }
+    }
+
+    function viewEnquiryDetails(id) {
+      const enq = currentEnquiries.find(e => e._id === id);
+      if (!enq) return;
+
+      document.getElementById('modalRefTitle').textContent = `Enquiry [${enq.enquiryNumber}]`;
+      const cleanPhone = enq.phone.replace(/[^0-9]/g, '');
+
+      let notesHtml = (enq.notes || []).map(n => `
+        <div style="background:#F8F9FC; border-left:3px solid #C9942A; padding:8px 12px; margin-bottom:8px; border-radius:4px; font-size:0.85rem;">
+          <div>${n.note}</div>
+          <div style="font-size:0.72rem; color:#64748B; margin-top:4px;">By ${n.createdBy} &bull; ${formatDate(n.createdAt)}</div>
+        </div>
+      `).join('');
+
+      if (!notesHtml) notesHtml = '<p style="color:#64748B; font-size:0.85rem;">No internal notes yet.</p>';
+
+      document.getElementById('modalEnquiryContent').innerHTML = `
+        <div style="display:grid; grid-template-columns: 1fr 1fr; gap:16px; margin-bottom:20px;">
+          <div><label style="font-size:0.75rem; color:#64748B;">Contact Person</label><div style="font-weight:600;">${enq.name}</div></div>
+          <div><label style="font-size:0.75rem; color:#64748B;">School / Business Name</label><div style="font-weight:600;">${enq.businessName || 'N/A'}</div></div>
+          <div><label style="font-size:0.75rem; color:#64748B;">Phone</label><div><a href="tel:${enq.phone}">${enq.phone}</a></div></div>
+          <div><label style="font-size:0.75rem; color:#64748B;">Email</label><div>${enq.email || 'Not provided'}</div></div>
+          <div><label style="font-size:0.75rem; color:#64748B;">Customer Type</label><div style="text-transform:capitalize;">${enq.customerType}</div></div>
+          <div><label style="font-size:0.75rem; color:#64748B;">Manufacturing Model</label><div style="text-transform:capitalize;">${enq.manufacturingModel}</div></div>
+        </div>
+
+        <div style="background:#F8FAFD; border:1px solid #E2E8F0; padding:14px; border-radius:8px; margin-bottom:24px;">
+          <label style="font-size:0.75rem; color:#64748B; font-weight:600;">Client Message</label>
+          <div style="font-size:0.9rem; margin-top:4px; white-space:pre-wrap;">${enq.message || 'No additional message.'}</div>
+        </div>
+
+        <h4 style="font-size:0.95rem; margin-bottom:10px;">Internal Activity & Notes</h4>
+        <div id="notesContainer" style="max-height:160px; overflow-y:auto; margin-bottom:14px;">
+          ${notesHtml}
+        </div>
+
+        <div style="display:flex; gap:8px;">
+          <input type="text" id="newNoteInput" class="form-control" placeholder="Add follow-up note (e.g. Sent quotation on email)..." />
+          <button onclick="submitNote('${enq._id}')" class="btn btn-primary" style="white-space:nowrap;">Save Note</button>
+        </div>
+      `;
+
+      openModal('enquiryModal');
+    }
+
+    async function submitNote(id) {
+      const input = document.getElementById('newNoteInput');
+      const note = input.value.trim();
+      if (!note) return;
+
+      try {
+        const res = await adminFetch(`/admin/enquiries/${id}/notes`, {
+          method: 'PATCH',
+          body: JSON.stringify({ note })
+        });
+        showToast('Note added', 'success');
+        // Refresh local memory and reload modal
+        const updated = res.data;
+        const idx = currentEnquiries.findIndex(e => e._id === id);
+        if (idx !== -1) currentEnquiries[idx] = updated;
+        viewEnquiryDetails(id);
+      } catch (err) {
+        showToast('Failed to add note: ' + err.message, 'error');
+      }
+    }
+
+    function applyFilters() {
+      loadEnquiries();
+    }
+
+    // Enter key trigger for search
+    document.getElementById('searchInput').addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') applyFilters();
+    });
+
+    loadEnquiries();
+  </script>
+</body>
+</html>
