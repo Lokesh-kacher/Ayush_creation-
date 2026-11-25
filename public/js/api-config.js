@@ -12,7 +12,7 @@
     window.location.hostname === '127.0.0.1' ||
     window.location.protocol === 'file:';
 
-  const DEFAULT_PROD_API = 'https://ayush-creation-backend.onrender.com/api/v1';
+  const DEFAULT_PROD_API = 'https://ayush-creation-api.onrender.com/api/v1';
   const DEFAULT_LOCAL_API = 'http://localhost:5000/api/v1';
 
   const customApiOverride = localStorage.getItem('AYUSH_API_URL');
